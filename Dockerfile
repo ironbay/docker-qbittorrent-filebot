@@ -1,0 +1,25 @@
+FROM wernight/qbittorrent:latest
+
+USER root
+
+RUN apk update
+
+RUN apk add ca-certificates coreutils tzdata
+
+RUN echo '@testing http://dl-4.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories && \
+    apk update && \
+    apk add --no-cache \
+        java-cacerts \
+        java-jna \
+        libzen@testing \
+        libmediainfo@testing \
+        openjdk8-jre-base
+
+# Install filebot
+WORKDIR /usr/local/bin
+ADD https://downloads.sourceforge.net/project/filebot/filebot/FileBot_4.7.9/FileBot_4.7.9-portable.tar.xz filebot.tar.xz
+RUN tar xvf filebot.tar.xz
+RUN chmod +x filebot.sh
+RUN mv filebot.sh filebot
+RUN filebot --help
+
