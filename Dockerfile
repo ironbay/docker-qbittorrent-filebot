@@ -21,5 +21,5 @@ ADD https://downloads.sourceforge.net/project/filebot/filebot/FileBot_4.7.9/File
 RUN tar xvf filebot.tar.xz
 RUN chmod +x filebot.sh
 RUN mv filebot.sh filebot
-RUN filebot --help
+# RUN filebot --help
 
