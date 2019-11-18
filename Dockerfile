@@ -17,7 +17,7 @@ RUN echo '@testing http://dl-4.alpinelinux.org/alpine/edge/testing' >> /etc/apk/
 
 # Install filebot
 WORKDIR /usr/local/bin
-COPY FileBot_4.7.7-portable.tar.xz filebot.tar.xz
+COPY FileBot_4.8.5-portable.tar.xz filebot.tar.xz
 RUN ls -lah
 RUN tar xvf filebot.tar.xz
 RUN chmod +x filebot.sh
