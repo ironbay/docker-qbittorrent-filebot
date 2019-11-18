@@ -6,7 +6,7 @@ RUN apk update
 
 RUN apk add ca-certificates coreutils tzdata
 
-RUN apk add openjdk11 --repository=http://dl-4.alpinelinux.org/alpine/edge/community
+RUN apk add openjdk11-jre-headless --repository=http://dl-4.alpinelinux.org/alpine/edge/community
 
 RUN echo '@testing http://dl-4.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories && \
     apk update && \
