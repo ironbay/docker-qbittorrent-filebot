@@ -7,6 +7,7 @@ RUN echo '@edgecommunity http://dl-4.alpinelinux.org/alpine/edge/community' >> /
 
 RUN apk update
 
+RUN apk add libzen
 RUN apk add ca-certificates coreutils tzdata
 
 RUN apk add openjdk11-jre-headless@edgecommunity 
