@@ -26,7 +26,7 @@ RUN ls -lah
 RUN tar xvf filebot.tar.xz
 RUN chmod +x filebot.sh
 RUN mv filebot.sh filebot
-RUN rm -rf ./lib/Linux-x86_64/libmediainfo.so 
+RUN rm -rf ./lib/Linux-x86_64/libzen.so
 # RUN filebot --help
 
 RUN filebot -script fn:sysinfo
