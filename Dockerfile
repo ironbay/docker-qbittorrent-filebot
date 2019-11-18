@@ -2,19 +2,19 @@ FROM wernight/qbittorrent:latest
 
 USER root
 
-RUN echo '@edgecommunity http://dl-4.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories 
-RUN echo '@edgetesting http://dl-4.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories 
 RUN apk update
 
 RUN apk add ca-certificates coreutils tzdata
-RUN apk add openjdk11 --repository=http://dl-4.alpinelinux.org/alpine/edge/community/
 
-RUN apk add libmediainfo chromaprint chromaprint-dev
-
-RUN apk add --no-cache \
+RUN echo '@testing http://dl-4.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories && \
+    apk update && \
+    apk add --no-cache \
         java-cacerts \
         java-jna \
-        libzen
+        libzen@testing \
+        libmediainfo@testing \
+        openjdk8-jre-base
+
 
 # Install filebot
 WORKDIR /usr/local/bin
