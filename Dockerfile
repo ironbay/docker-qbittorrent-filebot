@@ -6,14 +6,16 @@ RUN apk update
 
 RUN apk add ca-certificates coreutils tzdata
 
+RUN apk add openjdk11 --repository=http://dl-4.alpinelinux.org/alpine/edge/community
+
 RUN echo '@testing http://dl-4.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories && \
     apk update && \
     apk add --no-cache \
         java-cacerts \
         java-jna \
         libzen@testing \
-        libmediainfo@testing \
-        openjdk8-jre-base
+        libmediainfo@testing
+
 
 
 # Install filebot
