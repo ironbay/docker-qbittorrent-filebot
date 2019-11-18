@@ -11,9 +11,11 @@ RUN echo '@testing http://dl-4.alpinelinux.org/alpine/edge/testing' >> /etc/apk/
     apk add --no-cache \
         java-cacerts \
         java-jna \
-        libzen@testing \
-        libmediainfo@testing \
-        openjdk8-jre-base
+        libzen \
+        libmediainfo \
+        openjdk11-jre-headless \
+        chromaprint \
+        chromaprint-dev
 
 # Install filebot
 WORKDIR /usr/local/bin
